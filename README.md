@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# React Ticketmaster API
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+Welcome to the React Ticketmaster API Single Page Application project! This application is designed to provide a seamless experience for users interested in exploring events, attractions, venues, and more through the Ticketmaster API.
 
-In the project directory, you can run:
+## Introduction
 
-### `npm start`
+Our application leverages React, create-react-app, and React Router 6 to create an interactive and user-friendly experience. By integrating the Ticketmaster Discovery API, we offer access to a vast repository of event-related data right at your fingertips.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Getting Started
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Obtain Your API Key
 
-### `npm test`
+Before diving into the application, you'll need to obtain your own individual API key by registering for a free account on the Ticketmaster platform. Once you have your API key, insert it into the URL for Axios requests within the application. Ensure that you filter data to only include results found in the United States using the `countryCode` URL parameter.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+For example, when querying events, your URL should look like this:
 
-### `npm run build`
+```bash
+https://app.ticketmaster.com/discovery/v2/events?apikey=${API_KEY}&countryCode=US
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Application Pages
+## Home Page
+The root directory of our application serves as an informative landing page. Here, you can discover the purpose of our site, explore details about Ticketmaster and its API, and even read about our favorite events and concerts. Get creative with this page!  
+You'll also find links to essential sections of the application, including the Events Listing, Attractions Listing, and Venues Listing.  
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Events Listing
+This route utilizes the Ticketmaster API to fetch and display a paginated list of events. The :page parameter determines which page of events to request. The application provides navigation buttons for moving between pages. If there are no more events on a particular page, the SPA will redirect to a 404 page.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Event Details
+This route provides comprehensive details about a single event. It works for every event in the API. If the event does not exist, the SPA redirects to a 404 page.
 
-### `npm run eject`
+## Attractions Listing
+Similar to the events listing, this route displays a paginated list of attractions using data from the Ticketmaster API. Again, the :page parameter controls the page requested. If no more attractions are available on a specific page, the SPA redirects to a 404 page.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Attraction Details
+Here, users can explore detailed information about a single attraction. Just like with events, this route works for every attraction in the API, and it handles cases where an attraction doesn't exist.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Venues Listing
+The venues listing route presents a paginated list of venues, making use of the :page parameter for page selection. A pagination UI is provided for ease of navigation. When there are no more venues on a page, the SPA redirects to a 404 page.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Venue Details
+This route offers in-depth information about a specific venue. It is designed to work for every venue in the Ticketmaster API, and it handles scenarios where a venue is not found.
